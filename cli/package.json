@@ -1,0 +1,26 @@
+{
+  "name": "acmods",
+  "version": "0.1.0",
+  "description": "CLI tool for Assetto Corsa mod management",
+  "module": "src/index.ts",
+  "type": "module",
+  "bin": {
+    "acmods": "src/index.ts"
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build": "bun build src/index.ts --compile --outfile acmods",
+    "test": "bun test"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@acmods/blender-scripts": "workspace:*",
+    "commander": "^14.0.3"
+  }
+}

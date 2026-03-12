@@ -1,0 +1,11 @@
+{
+  "name": "@acmods/blender-scripts",
+  "version": "0.1.0",
+  "description": "Blender Python scripts for Assetto Corsa mod creation",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

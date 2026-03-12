@@ -1,0 +1,23 @@
+node_modules/
+
+# Build output
+dist/
+acmods
+
+# Bun
+bun.lockb
+.bun/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

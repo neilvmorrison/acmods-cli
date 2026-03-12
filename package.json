@@ -1,0 +1,5 @@
+{
+  "name": "acmods",
+  "private": true,
+  "workspaces": ["cli", "blender-scripts"]
+}
