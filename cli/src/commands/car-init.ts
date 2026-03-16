@@ -134,8 +134,16 @@ export async function scaffoldCar(
   log.step(`mkdir ${name}/skins/default/`);
 
   const placeholders: [string, string][] = [
+    [join(carDir, `${name}.kn5`), ""],
+    [join(carDir, "collider.kn5"), ""],
+    [join(carDir, "driver_base_pos.knh"), ""],
+    [join(carDir, "data.acd"), ""],
     [join(carDir, "logo.png"), ""],
     [join(carDir, "body_shadow.png"), ""],
+    [join(carDir, "tyre_0_shadow.png"), ""],
+    [join(carDir, "tyre_1_shadow.png"), ""],
+    [join(carDir, "tyre_2_shadow.png"), ""],
+    [join(carDir, "tyre_3_shadow.png"), ""],
     [join(carDir, "sfx", "GUIDs.txt"), ""],
   ];
   for (const [path, content] of placeholders) {

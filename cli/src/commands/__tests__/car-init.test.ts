@@ -62,14 +62,23 @@ describe("scaffoldCar", () => {
     expect(dirExists(join(tmpDir, name, "ui"))).toBe(true);
   });
 
-  test("creates logo.png placeholder", async () => {
+  test("creates root placeholder files", async () => {
     await scaffoldCar(name, tmpDir, defaultUiCar(name), false);
-    expect(fileExists(join(tmpDir, name, "logo.png"))).toBe(true);
-  });
-
-  test("creates body_shadow.png placeholder", async () => {
-    await scaffoldCar(name, tmpDir, defaultUiCar(name), false);
-    expect(fileExists(join(tmpDir, name, "body_shadow.png"))).toBe(true);
+    const rootFiles = [
+      `${name}.kn5`,
+      "collider.kn5",
+      "driver_base_pos.knh",
+      "data.acd",
+      "logo.png",
+      "body_shadow.png",
+      "tyre_0_shadow.png",
+      "tyre_1_shadow.png",
+      "tyre_2_shadow.png",
+      "tyre_3_shadow.png",
+    ];
+    for (const file of rootFiles) {
+      expect(fileExists(join(tmpDir, name, file))).toBe(true);
+    }
   });
 
   test("creates sfx/GUIDs.txt placeholder", async () => {
