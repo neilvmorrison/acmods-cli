@@ -88,7 +88,7 @@ async function collectMetadata(name: string): Promise<UiTrack> {
   };
 }
 
-async function scaffoldTrack(
+export async function scaffoldTrack(
   name: string,
   outputDir: string,
   metadata: UiTrack,
