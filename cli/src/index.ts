@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 import { Command } from "commander";
 import { registerTrackInit } from "./commands/track-init.ts";
+import { registerCarInit } from "./commands/car-init.ts";
 import { registerSetup } from "./commands/setup.ts";
 import { registerConfig } from "./commands/config.ts";
 import { getConfigPath, readConfig } from "./config/index.ts";
@@ -17,6 +18,7 @@ program
 registerSetup(program);
 registerConfig(program);
 registerTrackInit(program);
+registerCarInit(program);
 
 program.hook("preAction", async (_thisCommand, actionCommand) => {
   if (["setup", "config"].includes(actionCommand.name())) return;
