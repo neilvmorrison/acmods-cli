@@ -1,0 +1,5 @@
+export const BRAKES_INI = `[DATA]
+MAX_TORQUE=2800
+BIAS=0.55
+MAX_PRESSURE=70
+`;
