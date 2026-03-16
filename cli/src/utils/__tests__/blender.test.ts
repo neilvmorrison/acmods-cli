@@ -1,5 +1,5 @@
 import { describe, test, expect } from "bun:test";
-import { findBlenderBinary } from "./blender.ts";
+import { findBlenderBinary } from "../blender.ts";
 
 describe("findBlenderBinary", () => {
   test("returns a string or null without throwing", () => {

@@ -1,4 +1,11 @@
-import { describe, test, expect, beforeEach, afterEach, beforeAll } from "bun:test";
+import {
+  describe,
+  test,
+  expect,
+  beforeEach,
+  afterEach,
+  beforeAll,
+} from "bun:test";
 import { tmpdir, homedir } from "node:os";
 import { join } from "node:path";
 import { mkdtemp, rm } from "node:fs/promises";
@@ -13,7 +20,7 @@ import {
   writeJson,
   createDir,
   listDir,
-} from "./fs.ts";
+} from "../fs.ts";
 
 beforeAll(() => {
   spyOn(console, "log").mockImplementation(() => {});

@@ -1,11 +1,19 @@
-import { describe, test, expect, beforeEach, afterEach, beforeAll, mock } from "bun:test";
+import {
+  describe,
+  test,
+  expect,
+  beforeEach,
+  afterEach,
+  beforeAll,
+  mock,
+} from "bun:test";
 import { spyOn } from "bun:test";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { mkdtemp, rm } from "node:fs/promises";
-import { scaffoldTrack } from "./track-init.ts";
-import { defaultUiTrack } from "../consts/ui.ts";
-import { fileExists, dirExists, readJson } from "../utils/fs.ts";
+import { scaffoldTrack } from "../track-init.ts";
+import { defaultUiTrack } from "../../consts/ui.ts";
+import { fileExists, dirExists, readJson } from "../../utils/fs.ts";
 
 beforeAll(() => {
   spyOn(console, "log").mockImplementation(() => {});
@@ -84,12 +92,15 @@ describe("scaffoldTrack", () => {
 
   test("creates .gitattributes and .gitignore when initGit=true", async () => {
     // Mock git subprocess to prevent actual git calls
-    const spawnSpy = spyOn(Bun, "spawnSync").mockImplementation(() => ({
-      exitCode: 0,
-      stdout: Buffer.from(""),
-      stderr: Buffer.from(""),
-      success: true,
-    } as ReturnType<typeof Bun.spawnSync>));
+    const spawnSpy = spyOn(Bun, "spawnSync").mockImplementation(
+      () =>
+        ({
+          exitCode: 0,
+          stdout: Buffer.from(""),
+          stderr: Buffer.from(""),
+          success: true,
+        }) as ReturnType<typeof Bun.spawnSync>,
+    );
 
     await scaffoldTrack(name, tmpDir, defaultUiTrack(name), true);
 
@@ -107,7 +118,7 @@ describe("scaffoldTrack", () => {
     }) as never);
 
     await expect(
-      scaffoldTrack(name, tmpDir, defaultUiTrack(name), false)
+      scaffoldTrack(name, tmpDir, defaultUiTrack(name), false),
     ).rejects.toThrow("process.exit called");
 
     exitSpy.mockRestore();

@@ -1,5 +1,5 @@
 import { describe, test, expect } from "bun:test";
-import { defaultUiTrack } from "./ui.ts";
+import { defaultUiTrack } from "../ui.ts";
 
 describe("defaultUiTrack", () => {
   test("sets name to the provided argument", () => {
@@ -30,7 +30,18 @@ describe("defaultUiTrack", () => {
   });
 
   test("all required UiTrack keys are present", () => {
-    const keys = ["name", "description", "tags", "geotags", "country", "city", "length", "width", "pitboxes", "run"];
+    const keys = [
+      "name",
+      "description",
+      "tags",
+      "geotags",
+      "country",
+      "city",
+      "length",
+      "width",
+      "pitboxes",
+      "run",
+    ];
     const result = defaultUiTrack("test-track");
     for (const key of keys) {
       expect(result).toHaveProperty(key);
